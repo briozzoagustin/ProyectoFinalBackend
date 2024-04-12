@@ -1,0 +1,55 @@
+<div class="container mt-5">
+	<div class="row justify-content-center">
+		<div class="col-md-6 border border-dark p-4">
+			<form
+				id="login-form"
+				class="login-form"
+				action="/api/session/login"
+				method="post"
+				enctype="multipart/form-data"
+			>
+				<h2 class="mb-4">Iniciar sesión</h2>
+
+				<div class="form-group">
+					<label for="username">Email:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="username"
+						name="username"
+						required
+					/>
+				</div>
+
+				<div class="form-group">
+					<label for="password">Contraseña:</label>
+					<input
+						type="password"
+						class="form-control"
+						id="password"
+						name="password"
+						required
+					/>
+				</div>
+
+				<button
+					class="btn btn-primary btn-block mt-2"
+					id="login"
+					type="submit"
+				>Ingresar</button>
+
+				<a class="d-block mt-3" href="/forgot">Haz olvidado tu
+					contraseña</a>
+				<a class="d-block mt-1" href="/signup">Aún no tienes cuenta?</a>
+				<a class="d-block mt-1" href="api/restore-password">Restablecer
+					contraseña</a>
+			</form>
+
+			<a
+				href="/api/session/github"
+				class="btn btn-secondary btn-block mt-3"
+			>Login con GitHub</a>
+		</div>
+	</div>
+</div>
+<script src="js/login.js"></script>

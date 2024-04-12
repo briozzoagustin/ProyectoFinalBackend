@@ -1,0 +1,26 @@
+<div id="product-details" class="container mt-5">
+	<div class="row">
+		<div class="col">
+			<div class="container-fluid">
+				<a class="btn btn-light mb-3" href="/api/products">Inicio</a>
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-body">
+			<h1 class="card-title">{{name}}</h1>
+			<img src="/{{productImage}}" />
+			<p class="card-text">{{description}}</p>
+			<p class="card-text">Categoría: {{category}}</p>
+			<p class="card-text">Disponibilidad: {{availability}}</p>
+			<p class="card-text">Precio: {{price}}</p>
+			<button
+				type="button"
+				class="btn btn-primary button-add-to-cart"
+				id="{{_id}}"
+			>Agregar al Carrito</button>
+		</div>
+	</div>
+</div>
+
+<script src="/js/product.js"></script>

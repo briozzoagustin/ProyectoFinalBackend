@@ -1,0 +1,73 @@
+<div> 
+    <div class="container-fluid d-flex align-items-center justify-content-center">
+    <div class="welcome-message text-center">
+        <img src="http://localhost:8080/{{showAvatar}}" alt="Avatar" width="50" height="50" class="img-fluid rounded-circle mt-3"> 
+
+        {{#if user}}
+            <p>Usuario: {{user.user.user.email}}</p>
+            <p>Rol: {{user.user.user.role}}</p>
+
+            <button type="button" class="btn btn-primary cart-button" id="{{user.user.user.cart}}">Ir al carrito</button>
+            <a id="profile-button" class="btn btn-primary m-2 ml-2" href="/api/users/{{user.user.user._id}}/profile">Ir al perfil</a> 
+            <a id="socket-button" class="btn btn-primary m-2 ml-2" href="/chat">Ir al chat</a>
+
+        {{/if}}
+
+        {{#if showEditProduct}}
+            <a type="button" class="btn btn-primary m-2" href="/api/updateproducts">Editar productos</a>
+        {{/if}}
+        
+        {{#if showChangeRole}}
+            <button type="button" class="btn btn-primary change-role-button m-2" id="{{user.user.user._id}}">Editar y mostrar usuarios</button>
+        {{/if}}
+
+        <a id="logout-button" class="btn btn-danger m-4">Cerrar Sesión</a>
+    </div>
+</div>
+
+<div id="product-list" class="d-flex flex-row flex-wrap">
+  {{#each products }}
+    <div class="card m-2 mb-10 p-5" style="width: 18rem;">
+      <img src="http://localhost:8080/{{productImage}}" class="card-img-top" alt="Product Image">
+      <div class="card-body">
+        <h5 class="card-title">{{this.name}}</h5>
+        <p class="card-text">Categoría: {{category}}</p>
+        <p class="card-text">Descripción: {{description}}</p>
+        <p class="card-text">Disponibilidad: {{availability}}</p>
+        <p class="card-text">Precio: {{price}}</p>
+        <div class="d-flex flex-column align-items-center">
+          <button type="button" class="btn btn-sm btn-warning view-details-button mb-3" id="{{_id}}">Ver Detalles</button>
+          <button type="button" class="btn btn-sm btn-primary button-add-to-cart" id="{{_id}}">Agregar al Carrito</button>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+</div>
+
+
+<div id="paginated">
+  <p>Page {{ pagination.currentPage }} of {{ pagination.totalPages }}</p>
+
+<div class="pagination">
+  {{#if pagination.hasPrevPage}}
+    <a href="{{ pagination.prevLink }}" class="btn btn-danger ">Anterior</a>
+  {{/if}}
+
+  {{#if pagination.hasNextPage}}
+    <a href="{{ pagination.nextLink }}" class="btn btn-danger ">Siguiente</a>
+  {{/if}}
+</div>
+
+</div>
+
+<script src="/js/product.js"></script>
+<script src="/js/logout.js"></script>
+<script src="/js/cart.js"></script>
+<script src="/js/update-products.js"></script>
+<script src="/js/edit-user.js"></script>
+  
+
+
+
+
+

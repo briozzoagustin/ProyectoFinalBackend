@@ -1,0 +1,84 @@
+<div class="container mt-5">
+	<!-- Botón de Inicio -->
+	<a type="button" class="btn btn-light mb-3" href="/api/products">Inicio</a>
+
+	<div class="row mt-2">
+		<!-- Información del Usuario - Columna Izquierda -->
+		<div class="col-md-6">
+			<h6>{{first_name}}</h6>
+			<h6>{{email}}</h6>
+		</div>
+
+		<!-- Avatar del Usuario - Columna Derecha -->
+		<div class="col-md-6">
+			<img
+				src="/{{profileImage}}"
+				alt="Avatar"
+				width="120"
+				height="120"
+				class="img-fluid rounded-circle"
+			/>
+		</div>
+	</div>
+
+	<!-- Formulario para cargar Avatar -->
+	<div class="row mt-3">
+		<div class="col">
+			<h5>Cargar imagen de perfil</h5>
+			<form
+				action="/api/users/{{_id}}/upload-avatar"
+				method="POST"
+				enctype="multipart/form-data"
+			>
+				<div class="mb-2">
+					<input type="file" name="profiles" class="form-control" />
+				</div>
+				<button
+					type="submit"
+					class="btn btn-warning btn-sm"
+				>Subir</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Subir Documentos -->
+	<div class="row mt-3">
+		<div class="col">
+			<h5>Subir documentos</h5>
+			<form
+				action="/api/users/{{_id}}/upload-documents"
+				method="post"
+				enctype="multipart/form-data"
+			>
+				<div class="mb-2">
+					<label for="documentType" class="form-label">Tipo de
+						documento:</label>
+					<select
+						id="documentType"
+						name="documentType"
+						class="form-select"
+					>
+						<option value="identification">Identificación</option>
+						<option value="addressProof">Comprobante de domicilio</option>
+						<option value="bankStatement">Estado de cuenta</option>
+					</select>
+				</div>
+
+				<div class="mb-2">
+					<label for="file" class="form-label">Seleccionar archivo:</label>
+					<input
+						type="file"
+						name="documents"
+						accept=".pdf, .doc, .docx, .jpg, .png"
+						class="form-control"
+					/>
+				</div>
+
+				<button
+					type="submit"
+					class="btn btn-warning btn-sm"
+				>Subir</button>
+			</form>
+		</div>
+	</div>
+</div>

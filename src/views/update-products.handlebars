@@ -1,0 +1,135 @@
+<div class="container mt-5">
+	<!-- Botón de Inicio -->
+	<div class="row">
+		<div class="col">
+			<a class="btn btn-light" href="/api/products">Inicio</a>
+		</div>
+	</div>
+
+	<!-- Editar y Crear Nuevo Producto -->
+	<div class="d-flex flex-row flex-wrap justify-content-center mt-3">
+		<div class="container">
+			<h2>Editar Productos</h2>
+			<p>{{user.user.user.email}}</p>
+		</div>
+
+		<div class="container mt-5">
+			<h3>Crear Nuevo Producto</h3>
+
+			<!-- Formulario para crear un nuevo producto -->
+			<form
+				id="createProductForm"
+				action="/api/updateproducts"
+				method="post"
+				enctype="multipart/form-data"
+			>
+				<div class="form-group">
+					<label for="name">Nombre:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="name"
+						name="name"
+						required
+					/>
+				</div>
+
+				<div class="form-group">
+					<label for="description">Descripción:</label>
+					<textarea
+						class="form-control"
+						id="description"
+						name="description"
+						required
+					></textarea>
+				</div>
+
+				<div class="form-group">
+					<label for="price">Precio:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="price"
+						name="price"
+						step="0.01"
+						required
+					/>
+				</div>
+
+				<div class="form-group">
+					<label for="category">Categoría:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="category"
+						name="category"
+						required
+					/>
+				</div>
+
+				<div class="form-group">
+					<label for="availability">Disponibilidad:</label>
+					<input
+						type="number"
+						class="form-control"
+						id="availability"
+						name="availability"
+						required
+					/>
+				</div>
+
+				<button
+					type="submit"
+					class="btn btn-primary mt-3"
+					id="createProductButton"
+					data-user-id="{{user.user.user._id}}"
+				>Crear Producto</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Lista de Productos -->
+	<div class="container mt-5">
+		<ul class="list-group">
+			{{#each products}}
+				<li class="list-group-item">
+					<strong>Id:</strong>
+					{{this._id}}<br />
+					<strong>Nombre:</strong>
+					{{this.name}}<br />
+					<strong>Descripción:</strong>
+					{{this.description}}<br />
+					<strong>Precio:</strong>
+					{{this.price}}<br />
+					<strong>Categoría:</strong>
+					{{this.category}}<br />
+					<strong>Disponibilidad:</strong>
+					{{this.availability}}<br />
+					<strong>Owner:</strong>
+					{{this.owner}}<br />
+					<img
+						class="mb-2"
+						width="90"
+						height="90"
+						src="/{{this.productImage}}"
+						alt=""
+					/><br />
+
+					<!-- Botón para actualizar el producto -->
+					<button
+						class="btn btn-warning mr-2 button-to-update-product"
+						id="{{this._id}}"
+					>Actualizar</button>
+
+					<!-- Botón para eliminar el producto -->
+					<button
+						class="btn btn-danger button-delete-product"
+						id="{{this._id}}"
+					>Eliminar</button>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>
+
+<script src="/js/update-products.js"></script>

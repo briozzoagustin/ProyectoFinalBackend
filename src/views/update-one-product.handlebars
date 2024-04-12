@@ -1,0 +1,114 @@
+<div class="container mt-5">
+	<div class="row">
+		<div class="col">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container-fluid">
+					<a class="btn btn-light" href="/api/products">Ir a home</a>
+					<a
+						class="btn btn-light"
+						href="/api/updateproducts/"
+					>Atras</a>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div>
+		<li class="border p-3 mt-3">
+			<strong>Id:</strong>
+			{{_id}}<br />
+			<strong>Nombre:</strong>
+			{{name}}<br />
+			<strong>Descripción:</strong>
+			{{description}}<br />
+			<strong>Precio:</strong>
+			{{price}}<br />
+			<strong>Categoría:</strong>
+			{{category}}<br />
+			<strong>Disponibilidad:</strong>
+			{{availability}}<br />
+		</li>
+
+		<!-- Formulario para actualizar un producto -->
+		<h3 class="mt-4">Editar producto</h3>
+		<form
+			id="updateProductForm"
+			action="/api/updateproducts/{{_id}}"
+			method="PUT"
+			class="mt-4"
+		>
+
+			<div class="form-group">
+				<label for="name">Nombre:</label>
+				<input
+					type="text"
+					id="name"
+					name="name"
+					class="form-control"
+					required
+				/>
+			</div>
+
+			<div class="form-group">
+				<label for="description">Descripción:</label>
+				<textarea
+					id="description"
+					name="description"
+					class="form-control"
+					rows="3"
+					required
+				></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="price">Precio:</label>
+				<input
+					type="number"
+					id="price"
+					name="price"
+					step="0.01"
+					class="form-control"
+					required
+				/>
+			</div>
+
+			<div class="form-group">
+				<label for="category">Categoría:</label>
+				<input
+					type="text"
+					id="category"
+					name="category"
+					class="form-control"
+					required
+				/>
+			</div>
+
+			<div class="form-group">
+				<label for="availability">Disponibilidad:</label>
+				<input
+					type="number"
+					id="availability"
+					name="availability"
+					class="form-control"
+					required
+				/>
+			</div>
+
+			<button
+				type="submit"
+				class="btn btn-primary mt-2"
+				id="{{_id}}"
+			>Actualizar producto</button>
+		</form>
+
+		<h3 class="mt-4">Cargar imagen del producto</h3>
+		<form
+			action="/api/updateproducts/{{_id}}"
+			method="POST"
+			enctype="multipart/form-data"
+		>
+			<input type="file" name="products" class="form-control mt-2" />
+			<button type="submit" class="btn btn-secondary mt-2">Subir</button>
+		</form>
+	</div>
+</div>
+<script src="/js/update-one-product.js"></script>

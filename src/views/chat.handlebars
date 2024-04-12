@@ -1,0 +1,32 @@
+<div class="container chat-container">
+	<div class="row">
+		<div class="col">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container-fluid">
+					<a class="btn btn-light" href="/api/products">Inicio</a>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+	<div class="input-group mt-3">
+		<input
+			type="text"
+			class="form-control"
+			id="message-input"
+			placeholder="Escribe tu mensaje..."
+		/>
+		<div class="input-group-append">
+			<button
+				class="btn btn-primary"
+				id="send-button"
+				type="button"
+			>Enviar</button>
+		</div>
+	</div>
+
+	<ul class="list-group mt-3" id="message-list"></ul>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/socket.js"></script>

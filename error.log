@@ -1,0 +1,6 @@
+debug: Mensaje de nivel DEBUG 
+http: Mensaje de nivel HTTP 
+info: Mensaje de nivel INFO 
+warning: Mensaje de nivel WARNING 
+error: Mensaje de nivel ERROR 
+

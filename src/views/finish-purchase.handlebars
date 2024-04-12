@@ -1,0 +1,28 @@
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-md-6 mx-auto">
+			<h3>Ticket de compra</h3>
+			<ul class="list-group mt-4">
+				<li class="list-group-item">
+					<strong>Id:</strong>
+					{{_id}}
+					<br />
+					<strong>Código:</strong>
+					{{code}}
+					<br />
+					<strong>Fecha de Compra:</strong>
+					{{purchase_datetime}}
+					<br />
+					<strong>Monto:</strong>
+					{{amount}}
+					<br />
+					<strong>Comprador:</strong>
+					{{purchaser}}
+					<br />
+				</li>
+			</ul>
+			<a class="btn btn-primary m-2" href="/api/products">Volver a
+				productos</a>
+		</div>
+	</div>
+</div>
